@@ -15,22 +15,24 @@ module.exports = async (app) => {
       if (typeof val === 'string') val = val.trim()
       return val
     }
-    console.log('req.body:', req.body)
     next()
   })
-  app.use(`${basePath}/docs`, express.static(path.join(__root, 'docs')))
-  app.all(`${basePath}/api`, function (req, res) {
+  app.use(`/docs`, express.static(path.join(__root, 'docs')))
+
+  app.all(`/api`, function (req, res) {
     res.status(200).json({ success: true, data: apiWelcomeMessage })
   })
 
-  app.all(`${basePath}/api/v1`, function (req, res) {
+  app.all(`/api/v1`, function (req, res) {
     res.status(200).json({ success: true, data: apiWelcomeMessage })
   })
 
-  app.all(`${basePath}`, function (req, res) {
-    res.status(200).json({ success: true, data: 'Welcome to connector rest api. Usage: /connector/:func/[:param1]/[:param2]/[:param3] Methods: GET, POST, PUT, DELETE ' })
+  app.all(`/`, function (req, res) {
+    res.status(200).json({ success: true, data: apiWelcomeMessage })
   })
-  clientControllers(app, `${basePath}/api/v1/:func/:param1/:param2/:param3`)
+
+
+  clientControllers(app, `/api/v1/:func/:param1/:param2/:param3`)
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
