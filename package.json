@@ -1,7 +1,7 @@
 {
-  "name": "connector-server",
+  "name": "connectorabi-server",
   "version": "2.0.1",
-  "description": "Manages socket clients and provides Restful API service",
+  "description": "ConnectorAbi Restful Api Service",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "nodemon index.js",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/connectorjs/connector-server.git"
+    "url": "git+https://github.com/connectorabi/server.git"
   },
   "keywords": [
-    "connectorjs",
+    "connectorabi",
     "websocket",
     "restful",
     "api",
@@ -29,9 +29,9 @@
   "author": "MiaJupiter Developer Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/connectorjs/connector-server/issues"
+    "url": "https://github.com/connectorabi/server/issues"
   },
-  "homepage": "https://github.com/connectorjs/connector-server#readme",
+  "homepage": "https://github.com/connectorabi/server#readme",
   "dependencies": {
     "atob": "^2.1.2",
     "axios": "^1.3.2",

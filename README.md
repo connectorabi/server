@@ -1,16 +1,16 @@
 <p align="center">
-<a href="https://connectorjs.com" _target="blank">
-<img src="https://github.com/connectorjs/.github/raw/main/images/connectorjs-logo.png"  width="400" />
+<a href="https://connectorabi.com" _target="blank">
+<img src="https://github.com/connectorabi/.github/raw/main/images/connectorabi-logo.png"  width="400" />
 </a>
 </p>
 
 
-[![](https://img.shields.io/badge/%F0%9F%8C%90%20Powered_by-miajupiter.com-blueviolet?style=flat&labelColor=%23323232)](https://miajupiter.com) ![GitHub followers](https://img.shields.io/github/followers/miajupiter?label=MiaJupiter&logo=github)
+[![](https://img.shields.io/badge/%F0%9F%8C%90%20Powered_by-aliabi.org-blueviolet?style=flat&labelColor=%23323232)](https://aliabi.org) ![GitHub followers](https://img.shields.io/github/followers/miajupiter?label=AliAbi%20Collective&logo=github)
 
 
-# ConnectorJS
+# ConnectorAbi
 
-[![](https://img.shields.io/badge/ConnectorJS%20Client%20API-Docs-chocolate?style=flat&logo=openapiinitiative&color=yellow)](https://docs.connectorjs.com/connector)
+[![](https://img.shields.io/badge/ConnectorAbi%20Client%20API-Docs-chocolate?style=flat&logo=openapiinitiative&color=yellow)](https://docs.connectorabi.com)
 
 Remote connector service. Client Connector provides you processing data from your server or computer via Rest service.
 
@@ -20,11 +20,11 @@ Remote connector service. Client Connector provides you processing data from you
 - [Download & Install](#download--install)
 - [clientId & clientPass](#clientid--clientpass)
 - [Structure](#structure)
-- [ConnectorJS Client API](#connectorjs-client-api)
+- [ConnectorAbi Client API](#connectorabi-client-api)
 - [License - MIT License](#license---mit-license)
 
 ## Client Connector
-Download & install this connector to reach to your pc/server over ConnectorJS Restful Services.
+Download & install this connector to reach to your pc/server over ConnectorAbi Restful Services.
 
 ## Supported Data Systems
 - SQL Server
@@ -36,20 +36,20 @@ Download & install this connector to reach to your pc/server over ConnectorJS Re
 - Windows Command Prompt
 
 ## Download & Install
-Download [ClientConnector (for Windows)](https://github.com/connectorjs/connector-server) client connector application.
-Unpack zip file and run `connectorjs_setup.exe`
+Download [ClientConnector (for Windows)](https://github.com/connectorabi/connector-server) client connector application.
+Unpack zip file and run `connectorabi_setup.exe`
 
 Setup needs administration privileges to install properly.
 
 ## clientId & clientPass
-When the connector runs first time, it takes new id and password from ConnectorJS Server. You need them for authentication.
+When the connector runs first time, it takes new id and password from ConnectorAbi Server. You need them for authentication.
 
 
 ## Structure
 
 ```mermaid
 graph LR
-cc(api.connectorjs.com/connector/:func/:param1/:param2);style cc fill:#1122dd,color:#eee;
+cc(api.connectorabi.com/connector/:func/:param1/:param2);style cc fill:#1122dd,color:#eee;
 conn(Connector Client);style conn fill:#1122dd,color:#eee;
 mdb[(MongoDb)];style mdb fill:#548235,color:#eee;
 mssql[(SQL Server)];style mssql fill:#548235,color:#eee;
@@ -83,19 +83,23 @@ cmd
 conn
 end
 
-subgraph dd [ConnectorJS Server]
+subgraph dd [ConnectorAbi Server]
 socket
 cc
 ra
 end
 
+
+
+
 ```
 
-## ConnectorJS Client API
+## ConnectorAbi Client API
 
-[ConnectorJS Client API Documentation](https://docs.connectorjs.com/connector/)
+[ConnectorAbi Client API Documentation](https://docs.connectorabi.com)
 
 
-## License - MIT License
+## License
 
-Copyright (c) 2023-**Now** [MiaJupiter Technology Inc.](https://miajupiter.com). All rights reserved. We are proud to be [Open Source](https://opensource.org). For full details about the license, please check the `LICENSE` file in the root directory of the source repository.
+[Apache License 2.0](./LICENSE)
+
