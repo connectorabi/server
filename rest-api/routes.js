@@ -125,7 +125,7 @@ function clientPassport(req) {
 
 function getController(folder, funcName) {
   let controllerName = path.join(__dirname, folder, `generic-command.controller.js`)
-  if (['message', 'mssql', 'mysql', 'pg', 'read-excel', 'write-excel', 'read-file', 'write-file', 'datetime', 'cmd'].includes(funcName) == false) {
+  if (['message', 'mssql', 'mysql', 'pg', 'read-excel', 'write-excel', 'read-file', 'write-file', 'datetime', 'rest', 'cmd'].includes(funcName) == false) {
     controllerName = path.join(__dirname, folder, `${funcName}.controller.js`)
   }
 
