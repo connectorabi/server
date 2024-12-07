@@ -42,10 +42,14 @@ module.exports = async function (httpServer) {
         lastIP: socket.ip
       }
 
+      socket.pingIntervalId = setInterval(() => {
+        socket.ping()
+        devLog(socket.connector.clientId, ' ping gonderildi')
+      }, Number(process.env.CONNECTOR_WS_PING_INTERVAL || 30000))
       socket.on('pong', () => {
         socket.isAlive = true
-        socket.lastPong
-        moduleHolder.pong && moduleHolder.pong(socket)
+        socket.lastPong = new Date()
+        if (moduleHolder.pong) moduleHolder.pong(socket)
       })
 
       socket.on('message', (rawData) => {
@@ -83,7 +87,7 @@ module.exports = async function (httpServer) {
 
 
     eventLog(`[WebsocketAPI]`.cyan, 'started')
-    uyuyanlariGemidenAt()
+    // uyuyanlariGemidenAt()
     resolve()
   })
 }
@@ -92,7 +96,7 @@ global.purgeSocket = (socket) => {
   try {
     delete global.wss.socketListByUuid[socket.id]
     socket.connector.clientId && delete global.wss.socketListByClientId[socket.connector.clientId]
-    clearInterval(socket.timeIntervalId)
+    // clearInterval(socket.timeIntervalId)
     clearInterval(socket.pingIntervalId)
     socket.terminate()
   } catch (err) {
@@ -102,27 +106,27 @@ global.purgeSocket = (socket) => {
 
 // throw the sleepers out of the boat
 
-function uyuyanlariGemidenAt() {
-  if (global.wss) {
-    let gemidenAtildi = false
-    global.wss.clients.forEach((socket) => {
-      if (socket.isAlive === false) {
-        purgeSocket(socket)
-        gemidenAtildi = true
-      } else {
-        socket.isAlive = false
-        socket.ping()
-      }
-    })
+// function uyuyanlariGemidenAt() {
+//   if (global.wss) {
+//     let gemidenAtildi = false
+//     global.wss.clients.forEach((socket) => {
+//       if (socket.isAlive === false) {
+//         purgeSocket(socket)
+//         gemidenAtildi = true
+//       } else {
+//         socket.isAlive = false
+//         socket.ping()
+//       }
+//     })
 
 
-    gemidenAtildi && eventLog(`Total client:`, wss._server._connections)
-  }
+//     gemidenAtildi && eventLog(`Total client:`, wss._server._connections)
+//   }
 
-  setTimeout(() => {
-    uyuyanlariGemidenAt()
-  }, Number(process.env.WS_PING_INTERVAL || 5000))
-}
+//   setTimeout(() => {
+//     uyuyanlariGemidenAt()
+//   }, Number(process.env.CONNECTOR_WS_PING_INTERVAL || 30000))
+// }
 
 
 function sendError(err, callback) {
